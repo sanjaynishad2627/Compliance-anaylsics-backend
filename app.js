@@ -9,10 +9,6 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 
-//  middleware:
-app.use(express.json());
-app.use(cookieParser());
-
 //  cors:
 app.use(
   cors({
@@ -21,6 +17,9 @@ app.use(
     credentials: true,
   }),
 );
+//  middleware:
+app.use(express.json());
+app.use(cookieParser());
 
 //  routes
 app.use("/api/auth", authrouter);

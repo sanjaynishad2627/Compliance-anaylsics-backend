@@ -12,6 +12,7 @@ export const createProduct = async (req, res, next) => {
       complianceStatus,
       complianceScore,
       deviceClass,
+      riskCategory,
       intendedUse,
       approvals,
       market,
@@ -19,6 +20,7 @@ export const createProduct = async (req, res, next) => {
 
     const regulatory = {
       deviceClass,
+      riskCategory,
       intendedUse,
       market: JSON.parse(market),
       approvals: JSON.parse(approvals),

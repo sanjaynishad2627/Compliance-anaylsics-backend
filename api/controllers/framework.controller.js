@@ -65,7 +65,7 @@ export const createFrameWork = async (req, res, next) => {
 //  get framework:
 export const getFramework = async (req, res, next) => {
   try {
-    const framework = await Framework.find({ isactive: true });
+    const framework = await Framework.find({ isActive: true });
     if (!framework || framework.length === 0) {
       return res.status(400).json({
         message: "No Framwork Exist",

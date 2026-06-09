@@ -97,12 +97,12 @@ Write a detailed summary of potential risks, compliance gaps, and actionable rec
 
   } catch (error) {
     console.error("❌ Compliance Analysis Error Details:", error);
-    
+
     let errorSource = "Unknown";
     if (error.status === 400) errorSource = "Bad Request (Check Qdrant or Groq inputs)";
-    
-    return res.status(500).json({ 
-      message: "Failed to analyze compliance", 
+
+    return res.status(500).json({
+      message: "Failed to analyze compliance",
       error: error.message,
       source: errorSource,
       details: error.response?.data || error.data || "No additional details"

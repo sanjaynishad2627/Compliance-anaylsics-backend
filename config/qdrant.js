@@ -8,6 +8,8 @@ const qdrantClient = new QdrantClient({
   apiKey: process.env.QUADRANT_API_KEY,
 });
 
+
+
 // Initialize Framework Collection
 const initFrameworkCollection = async () => {
   const collectionName = "frameworks";

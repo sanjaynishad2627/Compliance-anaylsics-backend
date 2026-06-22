@@ -13,7 +13,7 @@ const app = express();
 //  cors:
 app.use(
   cors({
-    origin: ["http://localhost:5173", 'https://compliance-analysis-blue.vercel.app', 'https://compliance-analysis-blue.vercel.app', "http://localhost:5174"],
+    origin: ["http://localhost:5173", 'https://compliance-analysis-blue.vercel.app', 'https://compliance-anaylsics-frontend.vercel.app', "http://localhost:5174"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
   }),

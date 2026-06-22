@@ -13,25 +13,19 @@ const app = express();
 //  cors:
 app.use(
   cors({
-    origin: ["http://localhost:5173", 'https://compliance-analysis-blue.vercel.app', 'https://compliance-anaylsics-frontend.vercel.app', "http://localhost:5174"],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https://compliance-anaylsics-frontend.vercel.app",
+      "https://compliance-analysis-blue.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
     credentials: true,
-  }),
+    optionsSuccessStatus: 200,
+  })
 );
 
-// Purana cors wala code hata kar sirf ye simple block daal do
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://compliance-anaylsics-frontend.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
-  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  
-  // Sabse zaroori: Preflight request ko yahin par response dekar khatam karo
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-  next();
-});
 
 //  middleware:
 app.use(express.json());
